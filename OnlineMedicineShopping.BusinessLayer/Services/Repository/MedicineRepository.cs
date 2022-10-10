@@ -25,8 +25,8 @@ namespace OnlineMedicineShopping.BusinessLayer.Services.Repository
         /// <returns></returns>
         public IList<Category> CatList()
         {
-            var catlist = _mediContext.Categories.ToList();
-            return catlist;
+            //Do code here
+            throw new NotImplementedException();
         }
         /// <summary>
         /// Book a doctor appointment and save data in appointment Table
@@ -35,9 +35,8 @@ namespace OnlineMedicineShopping.BusinessLayer.Services.Repository
         /// <returns></returns>
         public async Task<Appointment> DoctorAppointment(Appointment appointment)
         {
-            _mediContext.Appointments.Add(appointment);
-            await _mediContext.SaveChangesAsync();
-            return appointment;
+            //Do code here
+            throw new NotImplementedException();
         }
         /// <summary>
         /// Get all doctor list from InMemoryDb and show doctor list
@@ -45,9 +44,8 @@ namespace OnlineMedicineShopping.BusinessLayer.Services.Repository
         /// <returns></returns>
         public async Task<IEnumerable<Doctor>> GetAllDoctor()
         {
-            var doctor = await _mediContext.Doctors.
-                 OrderByDescending(x => x.Name).ToListAsync();
-            return doctor;
+            //Do code here
+            throw new NotImplementedException();
         }
         /// <summary>
         /// Get all medicine and show on web home page for shoppers, and show medicine with medicine category id
@@ -56,18 +54,8 @@ namespace OnlineMedicineShopping.BusinessLayer.Services.Repository
         /// <returns></returns>
         public async Task<IEnumerable<Medicine>> GetAllMedicine(int? id)
         {
-            if (id == null)
-            {
-                var medi = await _mediContext.Medicines.
-                OrderByDescending(x => x.Name).ToListAsync();
-                return medi;
-            }
-            else
-            {
-                var medi = await _mediContext.Medicines.Where(x => x.CatId == id).
-                OrderByDescending(x => x.Name).ToListAsync();
-                return medi;
-            }
+            //Do code here
+            throw new NotImplementedException();
         }
         /// <summary>
         /// Get medicine by Medicine Id from InMemoryDb
@@ -76,10 +64,8 @@ namespace OnlineMedicineShopping.BusinessLayer.Services.Repository
         /// <returns></returns>
         public async Task<Medicine> GetMedicineById(int medicineId)
         {
-            var result = await _mediContext.Medicines
-                                 .Where(x => x.MedicineId == medicineId)
-                                 .FirstOrDefaultAsync();
-            return result;
+            //Do code here
+            throw new NotImplementedException();
         }
         /// <summary>
         /// Get order infromation of medicine order
@@ -88,9 +74,8 @@ namespace OnlineMedicineShopping.BusinessLayer.Services.Repository
         /// <returns></returns>
         public async Task<IEnumerable<MedicineOrder>> OrderByuserId(int UserId)
         {
-            var result = await _mediContext.productOrders.
-                Where(x => x.UserId == UserId).Take(10).ToListAsync();
-            return result;
+            //Do code here
+            throw new NotImplementedException();
         }
         /// <summary>
         /// Place medicine order and save user address as well
@@ -100,15 +85,8 @@ namespace OnlineMedicineShopping.BusinessLayer.Services.Repository
         /// <returns></returns>
         public async Task<ApplicationUser> PlaceOrder(int medicineId, ApplicationUser user)
         {
-            _mediContext.ApplicationUsers.Add(user);
-            var order = new MedicineOrder()
-            {
-                MedicineId = medicineId,
-                UserId = user.UserId
-            };
-            _mediContext.Add(order);
-            await _mediContext.SaveChangesAsync();
-            return user;
+            //Do code here
+            throw new NotImplementedException();
         }
         /// <summary>
         /// Get medicine by name
@@ -117,9 +95,8 @@ namespace OnlineMedicineShopping.BusinessLayer.Services.Repository
         /// <returns></returns>
         public async Task<IEnumerable<Medicine>> MedicineByName(string name)
         {
-            var result = await _mediContext.Medicines.
-                Where(x => x.Name == name).Take(10).ToListAsync();
-            return result;
+            //Do code here
+            throw new NotImplementedException();
         }
         /// <summary>
         /// Get list of doctor and show on dropdownlist while appointment booking with doctor 
@@ -127,8 +104,8 @@ namespace OnlineMedicineShopping.BusinessLayer.Services.Repository
         /// <returns></returns>
         public IEnumerable<Doctor> Doctor()
         {
-            var doctor = _mediContext.Doctors.OrderByDescending(x => x.Name).ToList();
-            return doctor;
+            //Do code here
+            throw new NotImplementedException();
         }
         /// <summary>
         /// Get appointment details for user
@@ -137,10 +114,8 @@ namespace OnlineMedicineShopping.BusinessLayer.Services.Repository
         /// <returns></returns>
         public async Task<Appointment> GetAppointmentById(int appointmentId)
         {
-            var result = await _mediContext.Appointments
-                                 .Where(x => x.AppointmentId == appointmentId)
-                                 .FirstOrDefaultAsync();
-            return result;
+            //Do code here
+            throw new NotImplementedException();
         }
     }
 }
